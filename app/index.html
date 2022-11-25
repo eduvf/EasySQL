@@ -20,38 +20,34 @@
 
 		<!-- Grid -->
 		<script src="./grid.js" type="module"></script>
-		<script>
-			import Alpine from 'alpinejs';
+		<script src="./alpinejs/cdn.js" type="module"></script>
+		<script type="module">
 			Alpine.start();
 		</script>
 	</head>
-	<body class="min-h-full bg-white">
-		<nav class="bg-gray-800 flex justify-between p-3">
-			<div class="flex flex-wrap text-gray-300 space-x-2 font-medium">
-				<a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm">
+	<body
+		class="min-h-full bg-white"
+		x-data="{ tab: 1, active: 'bg-gray-900 text-white' }">
+		<nav class="navbar">
+			<div class="menu">
+				<button @click="tab = 1" :class="tab === 1 ? active : null">
 					<i class="fa-solid fa-gear"></i>
 					Configuració
-				</a>
-				<a
-					href="#"
-					class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+				</button>
+				<button @click="tab = 2" :class="tab === 2 ? active : null">
 					<i class="fa-solid fa-right-left"></i>
 					Canviar de full
-				</a>
-				<a
-					href="#"
-					class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+				</button>
+				<button @click="tab = 3" :class="tab === 3 ? active : null">
 					<i class="fa-solid fa-table"></i>
 					Veure/editar dades
-				</a>
-				<a
-					href="#"
-					class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+				</button>
+				<button @click="tab = 4" :class="tab === 4 ? active : null">
 					<i class="fa-solid fa-chart-line"></i>
 					Anàlisi
-				</a>
+				</button>
 			</div>
-			<div class="text-lg text-white px-3 py-1 space-x-3">
+			<div class="text-lg px-3 py-1 space-x-3">
 				<button>
 					<i class="fa-solid fa-magnifying-glass-minus"></i>
 				</button>
@@ -64,7 +60,9 @@
 			</div>
 		</nav>
 
-		<section class="flex justify-center align-middle font-medium">
+		<section
+			class="section flex justify-center align-middle font-medium"
+			x-show="tab === 1">
 			<div class="shadow-lg rounded-xl border my-10 p-10 w-full max-w-xl">
 				<form action="#" method="post" class="space-y-5">
 					<div class="text-in">
@@ -120,7 +118,7 @@
 			</div>
 		</section>
 
-		<section class="p-10">
+		<section class="p-10" x-show="tab === 2">
 			<ul class="space-y-3">
 				<li class="text-right">
 					<button class="btn text-sm">
@@ -158,7 +156,7 @@
 			</ul>
 		</section>
 
-		<section>
+		<section x-show="tab === 3">
 			<div id="grid" style="width: 100%; height: 400px"></div>
 		</section>
 	</body>
