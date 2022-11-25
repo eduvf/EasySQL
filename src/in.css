@@ -2,20 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-	.section {
-		@apply h-full;
-	}
 
+
+@layer components {
 	/* NAVBAR */
 	.navbar {
-		@apply bg-gray-800 flex justify-between p-3 text-gray-200;
+		@apply min-h-[4rem] bg-gray-800 flex justify-between items-center p-3 text-gray-200;
 	}
 	.navbar .menu {
 		@apply flex flex-wrap space-x-2 font-medium;
 	}
 	.navbar .menu button {
 		@apply hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm;
+	}
+	.navbar .icon-btn {
+		@apply px-3 py-2 hover:bg-gray-700 hover:text-white rounded-full;
 	}
 
 	/* FORMS */

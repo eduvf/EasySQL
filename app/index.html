@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html>
 	<head>
 		<meta charset="UTF-8" />
 		<!-- <meta
@@ -17,17 +17,10 @@
 
 		<!-- Tailwind Output -->
 		<link href="./out.css" rel="stylesheet" />
-
-		<!-- Grid -->
-		<script src="./grid.js" type="module"></script>
-		<script src="./alpinejs/cdn.js" type="module"></script>
-		<script type="module">
-			Alpine.start();
-		</script>
 	</head>
 	<body
-		class="min-h-full bg-white"
-		x-data="{ tab: 1, active: 'bg-gray-900 text-white' }">
+		x-data="{ tab: 1, active: 'bg-gray-900 text-white' }"
+		class="h-screen bg-white flex flex-col bg-gradient-to-r from-sky-200 to-indigo-200 overflow-hidden">
 		<nav class="navbar">
 			<div class="menu">
 				<button @click="tab = 1" :class="tab === 1 ? active : null">
@@ -38,7 +31,9 @@
 					<i class="fa-solid fa-right-left"></i>
 					Canviar de full
 				</button>
-				<button @click="tab = 3" :class="tab === 3 ? active : null">
+				<button
+					@click="tab = 3; window.refreshGrid()"
+					:class="tab === 3 ? active : null">
 					<i class="fa-solid fa-table"></i>
 					Veure/editar dades
 				</button>
@@ -47,117 +42,133 @@
 					Anàlisi
 				</button>
 			</div>
-			<div class="text-lg px-3 py-1 space-x-3">
-				<button>
+			<div class="text-lg">
+				<button onclick="document.location.reload()" class="icon-btn">
+					<i class="fa-solid fa-rotate-right"></i>
+				</button>
+				<button id="zoomOut" class="icon-btn">
 					<i class="fa-solid fa-magnifying-glass-minus"></i>
 				</button>
-				<button>
+				<button id="zoomIn" class="icon-btn">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
-				<a href="#">
+				<button class="icon-btn">
 					<i class="fa-regular fa-circle-question"></i>
-				</a>
+				</button>
 			</div>
 		</nav>
 
-		<section
-			class="section flex justify-center align-middle font-medium"
-			x-show="tab === 1">
-			<div class="shadow-lg rounded-xl border my-10 p-10 w-full max-w-xl">
-				<form action="#" method="post" class="space-y-5">
-					<div class="text-in">
-						<label for="server">
-							<i class="fa-solid fa-server"></i>
-							Servidor
-						</label>
-						<input type="text" name="server" id="server" />
-					</div>
-					<div class="text-in">
-						<label for="database">
-							<i class="fa-solid fa-database"></i>
-							Base de dades
-						</label>
-						<input type="text" name="database" id="database" />
-					</div>
+		<div class="flex-1">
+			<section x-show="tab === 1" x-transition class="h-full">
+				<div class="h-full flex justify-center items-center font-medium">
+					<form
+						action="#"
+						method="post"
+						class="bg-white shadow-lg rounded-xl border p-5 w-3/4 max-w-xl absolute space-y-5">
+						<div class="text-in">
+							<label for="server">
+								<i class="fa-solid fa-server"></i>
+								Servidor
+							</label>
+							<input type="text" name="server" id="server" />
+						</div>
+						<div class="text-in">
+							<label for="database">
+								<i class="fa-solid fa-database"></i>
+								Base de dades
+							</label>
+							<input type="text" name="database" id="database" />
+						</div>
 
-					<hr />
+						<hr />
 
-					<div class="text-in">
-						<label for="user">
-							<i class="fa-solid fa-user"></i>
-							Nom d'usuari
-						</label>
-						<input type="text" name="user" id="user" />
-					</div>
-					<div class="text-in">
-						<label for="passwd">
-							<i class="fa-solid fa-key"></i>
-							Contrasenya
-						</label>
-						<input type="password" name="passwd" id="passwd" />
-					</div>
+						<div class="text-in">
+							<label for="user">
+								<i class="fa-solid fa-user"></i>
+								Nom d'usuari
+							</label>
+							<input type="text" name="user" id="user" />
+						</div>
+						<div class="text-in">
+							<label for="passwd">
+								<i class="fa-solid fa-key"></i>
+								Contrasenya
+							</label>
+							<input type="password" name="passwd" id="passwd" />
+						</div>
 
-					<div>
-						<input
-							id="remember"
-							name="remember"
-							type="checkbox"
-							checked
-							class="mr-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-						<label for="remember">Recorda la configuració</label>
-					</div>
+						<div>
+							<input
+								id="remember"
+								name="remember"
+								type="checkbox"
+								checked
+								class="mr-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+							<label for="remember">Recorda la configuració</label>
+						</div>
 
-					<div>
-						<button type="submit" class="w-full btn">
-							Desa
-							<i class="fa-solid fa-check hidden"></i>
-							<i class="animate-spin fa-solid fa-rotate"></i>
+						<div>
+							<button type="submit" class="w-full btn">
+								Desa
+								<i class="fa-solid fa-check hidden"></i>
+								<i class="animate-spin fa-solid fa-rotate"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+
+			<section x-show="tab === 2" x-transition class="h-full p-10 bg-white">
+				<ul class="space-y-3">
+					<li class="text-right">
+						<button class="btn text-sm">
+							<i class="fa-solid fa-wrench"></i>
+							Administra
 						</button>
-					</div>
-				</form>
-			</div>
-		</section>
+					</li>
+					<hr />
+					<li>
+						<button class="btn px-3">
+							<i class="fa-solid fa-pen"></i>
+							<!-- Edita -->
+						</button>
+						<span class="ml-2 font-bold">Full 1, registre de clients</span>
+						<span class="ml-2 italic text-xs">
+							Última modificació: 25-11-2022
+						</span>
+					</li>
+					<hr />
+					<li>
+						<button class="btn px-3">
+							<i class="fa-solid fa-download"></i>
+							<!-- Carrega -->
+						</button>
+						<span class="ml-2">Full 2, vendes 2021</span>
+					</li>
+					<hr />
+					<li>
+						<button class="btn px-3">
+							<i class="fa-solid fa-download"></i>
+							<!-- Carrega -->
+						</button>
+						<span class="ml-2">Full 3, vendes 2022</span>
+					</li>
+				</ul>
+			</section>
 
-		<section class="p-10" x-show="tab === 2">
-			<ul class="space-y-3">
-				<li class="text-right">
-					<button class="btn text-sm">
-						<i class="fa-solid fa-wrench"></i>
-						Administra
-					</button>
-				</li>
-				<hr />
-				<li>
-					<button class="btn px-3">
-						<i class="fa-solid fa-pen"></i>
-						<!-- Edita -->
-					</button>
-					<span class="ml-2 font-bold">Full 1, registre de clients</span>
-					<span class="ml-2 italic text-xs">
-						Última modificació: 25-11-2022
-					</span>
-				</li>
-				<hr />
-				<li>
-					<button class="btn px-3">
-						<i class="fa-solid fa-download"></i>
-						<!-- Carrega -->
-					</button>
-					<span class="ml-2">Full 2, vendes 2021</span>
-				</li>
-				<hr />
-				<li>
-					<button class="btn px-3">
-						<i class="fa-solid fa-download"></i>
-						<!-- Carrega -->
-					</button>
-					<span class="ml-2">Full 3, vendes 2022</span>
-				</li>
-			</ul>
-		</section>
+			<section x-show="tab === 3" x-transition class="h-full">
+				<div id="grid" class="h-full"></div>
+			</section>
+		</div>
 
-		<section x-show="tab === 3">
-			<div id="grid" style="width: 100%; height: 400px"></div>
-		</section>
+		<!-- Grid -->
+		<script src="./grid.js" type="module"></script>
+		<!-- AlpineJS -->
+		<script src="./alpinejs/cdn.js" type="module"></script>
+		<script type="module">
+			window.onload = () => {
+				Alpine.start();
+			};
+		</script>
 	</body>
 </html>

@@ -315,3 +315,7 @@ window.showChanged = function () {
 window.advanceOnEdit = function (checked) {
 	grid.advanceOnEdit = checked;
 };
+
+window.refreshGrid = function () {
+	grid.refresh();
+};
