@@ -7,9 +7,9 @@
 			content="default-src 'self'; script-src 'self'" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" href="app/fonts/css/fontawesome.min.css" />
-		<link rel="stylesheet" href="app/fonts/css/regular.min.css" />
-		<link rel="stylesheet" href="app/fonts/css/solid.min.css" />
+		<link rel="stylesheet" href="app/fonts/css/fontawesome.css" />
+		<link rel="stylesheet" href="app/fonts/css/regular.css" />
+		<link rel="stylesheet" href="app/fonts/css/solid.css" />
 
 		<link href="app/out.css" rel="stylesheet" />
 	</head>
@@ -109,39 +109,41 @@
 		</section>
 
 		<section class="p-10">
-			<div class="flex flex-col">
-				<button class="btn text-sm self-end">
-					<i class="fa-solid fa-wrench"></i>
-					Administra
-				</button>
-
-				<ul class="space-y-3">
-					<li>
-						<button class="btn text-sm">
-							<i class="fa-solid fa-pen"></i>
-							Edita
-						</button>
-						<span class="ml-2 font-bold">Full 1, registre de clients</span>
-						<span class="ml-2 italic text-xs">
-							Última modificació: 25-11-2022
-						</span>
-					</li>
-					<li>
-						<button class="btn text-sm">
-							<i class="fa-solid fa-pen"></i>
-							Edita
-						</button>
-						<span class="ml-2">Full 2, vendes 2021</span>
-					</li>
-					<li>
-						<button class="btn text-sm">
-							<i class="fa-solid fa-pen"></i>
-							Edita
-						</button>
-						<span class="ml-2">Full 3, vendes 2022</span>
-					</li>
-				</ul>
-			</div>
+			<ul class="space-y-3">
+				<li class="text-right">
+					<button class="btn text-sm">
+						<i class="fa-solid fa-wrench"></i>
+						Administra
+					</button>
+				</li>
+				<hr />
+				<li>
+					<button class="btn px-3">
+						<i class="fa-solid fa-pen"></i>
+						<!-- Edita -->
+					</button>
+					<span class="ml-2 font-bold">Full 1, registre de clients</span>
+					<span class="ml-2 italic text-xs">
+						Última modificació: 25-11-2022
+					</span>
+				</li>
+				<hr />
+				<li>
+					<button class="btn px-3">
+						<i class="fa-solid fa-download"></i>
+						<!-- Carrega -->
+					</button>
+					<span class="ml-2">Full 2, vendes 2021</span>
+				</li>
+				<hr />
+				<li>
+					<button class="btn px-3">
+						<i class="fa-solid fa-download"></i>
+						<!-- Carrega -->
+					</button>
+					<span class="ml-2">Full 3, vendes 2022</span>
+				</li>
+			</ul>
 		</section>
 	</body>
 </html>
