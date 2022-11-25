@@ -20,7 +20,7 @@
 	</head>
 	<body
 		x-data="{ tab: 1, active: 'bg-gray-900 text-white' }"
-		class="h-screen bg-white flex flex-col bg-gradient-to-r from-sky-200 to-indigo-200 overflow-hidden">
+		class="h-screen bg-gray-50 flex flex-col overflow-hidden">
 		<nav class="navbar">
 			<div class="menu">
 				<button @click="tab = 1" :class="tab === 1 ? active : null">
@@ -59,7 +59,10 @@
 		</nav>
 
 		<div class="flex-1">
-			<section x-show="tab === 1" x-transition class="h-full">
+			<section
+				x-show="tab === 1"
+				x-transition
+				class="h-full bg-gradient-to-br from-blue-100 via-indigo-200">
 				<div class="h-full flex justify-center items-center font-medium">
 					<form
 						action="#"
@@ -118,15 +121,23 @@
 				</div>
 			</section>
 
-			<section x-show="tab === 2" x-transition class="h-full p-10 bg-white">
+			<section x-show="tab === 2" x-transition class="h-full p-10 space-y-3">
+				<div class="text-right">
+					<button class="btn text-sm">
+						<i class="fa-solid fa-wrench"></i>
+						Administra
+					</button>
+				</div>
+
+				<p class="text-sm">
+					Carrega un full fent clic a <i class="fa-solid fa-download"></i> o
+					edita un full ja carregat fent clic a
+					<i class="fa-solid fa-pen"></i> per obrir-lo en l'editor de dades.
+				</p>
+
+				<hr />
+
 				<ul class="space-y-3">
-					<li class="text-right">
-						<button class="btn text-sm">
-							<i class="fa-solid fa-wrench"></i>
-							Administra
-						</button>
-					</li>
-					<hr />
 					<li>
 						<button class="btn px-3">
 							<i class="fa-solid fa-pen"></i>
