@@ -1,0 +1,23 @@
+{
+  "name": "easysql",
+  "productName": "EasySQL",
+  "version": "1.0.0",
+  "description": "A simple app to manage SQL databases through the TDS protocol.",
+  "main": "app/main.js",
+  "scripts": {
+    "css-watch": "tailwindcss -i ./src/in.css -o ./app/out.css --watch",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduvf/EasySQL.git"
+  },
+  "author": "EduVF",
+  "license": "Unlicense",
+  "homepage": "https://github.com/eduvf/EasySQL#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "electron": "^21.3.1",
+    "tailwindcss": "^3.2.4"
+  }
+}

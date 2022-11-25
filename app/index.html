@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; script-src 'self'" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="app/fonts/css/fontawesome.min.css" />
+		<link rel="stylesheet" href="app/fonts/css/regular.min.css" />
+		<link rel="stylesheet" href="app/fonts/css/solid.min.css" />
+
+		<link href="app/out.css" rel="stylesheet" />
+	</head>
+	<body class="h-full bg-white">
+		<div class="min-h-full">
+			<nav class="bg-gray-800 flex justify-between p-3">
+				<div class="flex flex-wrap text-gray-300 space-x-2 font-medium">
+					<a
+						href="#"
+						class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm">
+						<i class="fa-solid fa-gear"></i>
+						Configuració
+					</a>
+					<a
+						href="#"
+						class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+						<i class="fa-solid fa-right-left"></i>
+						Canviar de full
+					</a>
+					<a
+						href="#"
+						class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+						<i class="fa-solid fa-table"></i>
+						Veure/editar dades
+					</a>
+					<a
+						href="#"
+						class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">
+						<i class="fa-solid fa-chart-line"></i>
+						Anàlisi
+					</a>
+				</div>
+				<div class="text-lg text-white px-3 py-1 space-x-3">
+					<button>
+						<i class="fa-solid fa-magnifying-glass-minus"></i>
+					</button>
+					<button>
+						<i class="fa-solid fa-magnifying-glass-plus"></i>
+					</button>
+					<a href="#">
+						<i class="fa-regular fa-circle-question"></i>
+					</a>
+				</div>
+			</nav>
+
+			<main>
+				<div class="w-full flex justify-center my-10 text-gray-800 font-medium">
+					<div class="shadow-xl rounded-xl border p-10 w-full max-w-xl">
+						<form action="#" method="post" class="space-y-5">
+							<div class="text-in">
+								<label for="server">
+									<i class="fa-solid fa-server"></i>
+									Servidor
+								</label>
+								<input type="text" name="server" id="server" />
+							</div>
+							<div class="text-in">
+								<label for="database">
+									<i class="fa-solid fa-database"></i>
+									Base de dades
+								</label>
+								<input type="text" name="database" id="database" />
+							</div>
+
+							<hr />
+
+							<div class="text-in">
+								<label for="user">
+									<i class="fa-solid fa-user"></i>
+									Nom d'usuari
+								</label>
+								<input type="text" name="user" id="user" />
+							</div>
+							<div class="text-in">
+								<label for="passwd">
+									<i class="fa-solid fa-key"></i>
+									Contrasenya
+								</label>
+								<input type="password" name="passwd" id="passwd" />
+							</div>
+
+							<div>
+								<input
+									id="remember"
+									name="remember"
+									type="checkbox"
+									checked
+									class="mr-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+								<label for="remember">Recorda la configuració</label>
+							</div>
+
+							<div>
+								<button
+									type="submit"
+									class="w-full rounded-lg border border-transparent bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+									Desa
+									<i class="fa-solid fa-check hidden"></i>
+									<i class="animate-spin fa-solid fa-rotate"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
