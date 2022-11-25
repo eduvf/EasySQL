@@ -19,7 +19,7 @@
 		<link href="./out.css" rel="stylesheet" />
 	</head>
 	<body
-		x-data="{ tab: 1, active: 'bg-gray-900 text-white' }"
+		x-data="{ dark: true, tab: 1, active: 'bg-gray-900 text-white' }"
 		class="h-screen bg-gray-50 flex flex-col overflow-hidden">
 		<nav class="navbar">
 			<div class="menu">
@@ -46,12 +46,16 @@
 				<button onclick="document.location.reload()" class="icon-btn">
 					<i class="fa-solid fa-rotate-right"></i>
 				</button>
-				<button id="zoomOut" class="icon-btn">
+				<button @click="dark = ! dark; toggleTheme(dark)" class="icon-btn">
+					<i x-show="! dark" class="fa-solid fa-sun"></i>
+					<i x-show="dark" class="fa-solid fa-moon"></i>
+				</button>
+				<!-- <button id="zoomOut" class="icon-btn">
 					<i class="fa-solid fa-magnifying-glass-minus"></i>
 				</button>
 				<button id="zoomIn" class="icon-btn">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
-				</button>
+				</button> -->
 				<button class="icon-btn">
 					<i class="fa-regular fa-circle-question"></i>
 				</button>
@@ -67,7 +71,7 @@
 					<form
 						action="#"
 						method="post"
-						class="bg-white shadow-lg rounded-xl border p-5 w-3/4 max-w-xl absolute space-y-5">
+						class="bg-white dark:bg-slate-800 shadow-lg rounded-xl border p-5 w-3/4 max-w-xl absolute space-y-5">
 						<div class="text-in">
 							<label for="server">
 								<i class="fa-solid fa-server"></i>
@@ -180,6 +184,16 @@
 			window.onload = () => {
 				Alpine.start();
 			};
+		</script>
+		<!-- Dark mode toggle -->
+		<script>
+			function toggleTheme(dark) {
+				if (dark) {
+					document.documentElement.classList.remove('dark');
+				} else {
+					document.documentElement.classList.add('dark');
+				}
+			}
 		</script>
 	</body>
 </html>
