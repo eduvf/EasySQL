@@ -20,7 +20,7 @@
 	</head>
 	<body
 		x-data="{ dark: true, tab: 1, active: 'bg-gray-900 text-white' }"
-		class="h-screen bg-gray-50 flex flex-col overflow-hidden">
+		class="h-screen text-slate-900 dark:text-white bg-white dark:bg-slate-800 flex flex-col overflow-hidden">
 		<nav class="navbar">
 			<div class="menu">
 				<button @click="tab = 1" :class="tab === 1 ? active : null">
@@ -66,7 +66,7 @@
 			<section
 				x-show="tab === 1"
 				x-transition
-				class="h-full bg-gradient-to-br from-blue-100 via-indigo-200">
+				class="h-full bg-gradient-to-br from-blue-100 via-indigo-200 dark:from-slate-800 dark:via-slate-900">
 				<div class="h-full flex justify-center items-center font-medium">
 					<form
 						action="#"
@@ -171,7 +171,10 @@
 				</ul>
 			</section>
 
-			<section x-show="tab === 3" x-transition class="h-full">
+			<section
+				x-show="tab === 3"
+				x-transition
+				class="h-full text-black dark:invert">
 				<div id="grid" class="h-full"></div>
 			</section>
 		</div>
