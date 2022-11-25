@@ -9,4 +9,8 @@
 	.text-in input {
 		@apply w-full rounded border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
 	}
+
+	.btn {
+		@apply rounded-lg border border-transparent bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+	}
 }
