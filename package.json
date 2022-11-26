@@ -10,7 +10,7 @@
     "linux": {
       "target": "AppImage"
     },
-    "windows": {
+    "win": {
       "target": "portable"
     }
   },
