@@ -8,9 +8,10 @@
     "appId": "com.github.eduvf.easysql",
     "productName": "EasySQL",
     "linux": {
-      "target": [
-        "AppImage"
-      ]
+      "target": "AppImage"
+    },
+    "windows": {
+      "target": "portable"
     }
   },
   "scripts": {
