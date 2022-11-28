@@ -1,7 +1,7 @@
 {
   "name": "easysql",
   "productName": "EasySQL",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple app to manage SQL databases through the TDS protocol.",
   "main": "app/main.js",
   "build": {
