@@ -18,7 +18,6 @@
     "css-watch": "tailwindcss -i ./src/in.css -o ./app/out.css --watch",
     "elec": "electron .",
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder",
     "release": "electron-builder --publish always"
   },
   "repository": {
