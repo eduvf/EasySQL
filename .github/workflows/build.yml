@@ -21,8 +21,8 @@ jobs:
 
       # - name: Build/release Electron app
       #   uses: samuelmeuli/action-electron-builder@v1
-      - name: Electron Builder
-        uses: paneron/action-electron-builder@v1.8.1
+      - name: Build/release Electron app
+        uses: Yan-Jobs/action-electron-builder@v1.7.0
 
         with:
           # GitHub token, automatically provided to the action
